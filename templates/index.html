@@ -1,0 +1,109 @@
+{%extends "layout.html" %}
+{% block title %}Home | My Twitter{% endblock %}
+{% block content %} 
+    <div id="login-box">
+        <h2 class="text-center mb-4">My Twitter</h2>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div><br/>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div><br/>
+        <div class="d-flex justify-content-center">
+            <button id="login" class="btn btn-success me-2 rounded-pill">Login</button>
+            <button id="sign-up" class="btn btn-success me-2 rounded-pill">Sign Up</button>
+        </div>
+    </div>
+
+    {% if user_token %}
+        <div class="container">
+            <div class="text-end mb-4">
+                <button id="sign-out" class="btn btn-dark">Signout</button>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <p class="fs-4 text-center">Welcome, {{ user_token.email }}</p>
+                    {% if error_message %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            {{ error_message }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/id-card.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">Add Username</p>
+                                <a href="/add_username" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/tweet.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">Add Tweet</p>
+                                <a href="/add_tweet" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/people.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">Search Username</p>
+                                <a href="/search_username" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/search.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">Search Tweet</p>
+                                <a href="/search_tweet" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/timeline.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">Timeline</p>
+                                <a href="/timeline" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="polaroid">
+                            <img src="/static/images/conversation.png" alt="bk" style="width:100%">
+                            <div class="container">
+                                <p class="text-center">My Tweets</p>
+                                <a href="/my_tweets" class="btn btn-success me-2 rounded-pill" style="margin:auto;display:block;">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                       
+        </div>
+    {% endif %}
+{% endblock %}
